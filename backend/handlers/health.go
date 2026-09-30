@@ -1,9 +1,10 @@
 package handlers
 
 import (
-	"encoding/json"
 	"net/http"
 	"time"
+
+	"github.com/nimisean/intelligent-systems-lab/backend/response"
 )
 
 type HealthResponse struct {
@@ -13,14 +14,11 @@ type HealthResponse struct {
 }
 
 func Health(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-
-	response := HealthResponse{
+	data := HealthResponse{
 		Status:    "ok",
 		Timestamp: time.Now().UTC().Format(time.RFC3339),
 		Service:   "intelligent-systems-backend",
 	}
 
-	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(response)
+	response.JSON(w, http.StatusOK, data)
 }
