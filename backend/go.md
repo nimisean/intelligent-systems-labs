@@ -1,3 +1,5 @@
-module github.com/YOUR-GITHUB-USERNAME/intelligent-systems-lab/backend
+module github.com/nimisean/intelligent-systems-lab/backend
 
 go 1.23
+
+require github.com/google/uuid v1.6.0
