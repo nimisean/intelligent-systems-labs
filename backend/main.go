@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/YOUR-GITHUB-USERNAME/intelligent-systems-lab/backend/handlers"
+	"github.com/nimisean/intelligent-systems-lab/backend/handlers"
 )
 
 func main() {
