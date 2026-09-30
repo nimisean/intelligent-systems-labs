@@ -12,5 +12,8 @@ func New() http.Handler {
 
 	mux.HandleFunc("/health", handlers.Health)
 
-	return middleware.Logging(mux)
+	handler := middleware.RequestID(mux)
+	handler = middleware.Logging(handler)
+
+	return handler
 }
