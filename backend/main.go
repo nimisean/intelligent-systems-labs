@@ -4,15 +4,15 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/nimisean/intelligent-systems-lab/backend/handlers"
+	"github.com/nimisean/intelligent-systems-lab/backend/router"
 )
 
 func main() {
-	http.HandleFunc("/health", handlers.Health)
+	r := router.New()
 
 	log.Println("Server running on http://localhost:8080")
 
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	if err := http.ListenAndServe(":8080", r); err != nil {
 		log.Fatal(err)
 	}
 }
