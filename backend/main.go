@@ -4,15 +4,17 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/nimisean/intelligent-systems-lab/backend/router"
+	"github.com/YOUR-GITHUB-USERNAME/intelligent-systems-lab/backend/config"
+	"github.com/YOUR-GITHUB-USERNAME/intelligent-systems-lab/backend/router"
 )
 
 func main() {
+	cfg := config.Load()
 	r := router.New()
 
-	log.Println("Server running on http://localhost:8080")
+	log.Printf("Server running on port %s", cfg.Port)
 
-	if err := http.ListenAndServe(":8080", r); err != nil {
+	if err := http.ListenAndServe(":"+cfg.Port, r); err != nil {
 		log.Fatal(err)
 	}
 }
